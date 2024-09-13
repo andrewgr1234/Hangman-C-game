@@ -31,7 +31,7 @@ namespace Hangman_Game
                 lines.Add('_');
             }
 
-            intro();
+            //intro();
             // Console.WriteLine(word);
 
             while (heart > 0)
@@ -39,7 +39,7 @@ namespace Hangman_Game
                 printLines(lines);
                 char input = prompt();
                 List<int> result = checkLetter(word, input, lines);
-
+                
                 if (result.Count == 0)
                 {
                     heart--;
