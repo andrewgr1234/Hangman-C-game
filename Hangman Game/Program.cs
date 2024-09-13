@@ -31,15 +31,18 @@ namespace Hangman_Game
                 lines.Add('_');
             }
 
-            //intro();
-            // Console.WriteLine(word);
+            intro();
+            /*
+            a little cheat for u
+            Console.WriteLine(word);
+            */
 
             while (heart > 0)
             {
                 printLines(lines);
                 char input = prompt();
                 List<int> result = checkLetter(word, input, lines);
-                
+
                 if (result.Count == 0)
                 {
                     heart--;
