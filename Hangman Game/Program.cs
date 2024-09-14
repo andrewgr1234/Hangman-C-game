@@ -86,7 +86,6 @@ namespace Hangman_Game
                 Console.Clear();
                 Console.SetCursorPosition(0, 0);
                 Console.WriteLine("You lost :(");
-                //Console.SetCursorPosition(0, 2);
                 drawHangman(7);
 
             }
