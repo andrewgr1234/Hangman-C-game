@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading;
 
@@ -16,7 +16,7 @@ namespace Hangman_Game
         };
 
         static string word = getWord();
-        static int heart = 7;
+        static int heart;
         static void Main(string[] args)
         {
             Console.BackgroundColor = ConsoleColor.DarkGray;
@@ -86,14 +86,49 @@ namespace Hangman_Game
                 Console.Clear();
                 Console.SetCursorPosition(0, 0);
                 Console.WriteLine("You lost :(");
+                Console.WriteLine("The word was '" + word + "'");
                 drawHangman(7);
 
             }
         }
 
+        public static void Difficulty()
+        {
+            int input = 0;
+
+            while (true)
+            {
+
+                Console.WriteLine("What difficulty do you want? (type the number)");
+                Console.WriteLine("1. Easy (10 Hearts)");
+                Console.WriteLine("2. Medium (7 Hearts)");
+                Console.WriteLine("3. Hard (4 Hearts)");
+
+                input = int.Parse(Console.ReadLine());
+
+                if (input >= 1 && input <= 3)
+                {
+                    if (input == 1) heart = 10;
+                    else if (input == 2) heart = 7;
+                    else if (input == 3) heart = 4;
+
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Please enter 1, 2, or 3.");
+                }
+
+            }
+
+            Console.Clear();
+        }
+
+
         public static void intro()
         {
-            Console.WriteLine("  Welcome to the Hangman game I wanted to do for some reason");
+            Difficulty();
+            Console.WriteLine("              Welcome to the Hangman game");
             Console.WriteLine("-------------------------------------------------------------");
             Console.WriteLine("| Its a " + word.Length + " letter word, good Luck!");
             Console.WriteLine("| " + heart + " hearts left!");
